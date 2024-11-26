@@ -1,0 +1,78 @@
+<mvc:View controllerName="com.wakefern.zpictures.controller.Main"
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core"
+  xmlns:mvc="sap.ui.core.mvc" height="100%">
+  <!-- 
+    <Image id="myImage" binding="{/Employees(1)}" src="{
+                    path : 'Photo',
+                    formatter : '.formatter.trimSuperfluousBytes'
+                    
+                  }" /> -->
+  <Panel expanded="true" expandable="true">
+    <FlexBox width="100%" justifyContent="SpaceBetween" class="">
+      <HBox id="leftHBox" justifyContent="Center" class="" width="100%">
+        <Panel id="Left-panel">
+          <Table items="{/Employees}" growing="true">
+            <headerToolbar>
+              <Toolbar >
+                <Title width="100%" text="Emplooyes Data" titleStyle="H3" textAlign="Center" />
+              </Toolbar>
+            </headerToolbar>
+            <columns>
+              <Column >
+                <Text text="Emplooye ID" />
+              </Column>
+              <Column >
+                <Text text="First Name" />
+              </Column>
+              <Column >
+                <Text text="Last Name" />
+              </Column>
+              <Column >
+                <Text text="Photo"/>
+              </Column>
+            </columns>
+            <items>
+              <ColumnListItem >
+                <Text text="{EmployeeID}"/>
+                <Text text="{FirstName}"/>
+                <Text text="{LastName}"/>
+                <Image src="{path: 'Photo', formatter: '.formatter.formatPhoto'}" height="50px" width="50px" />
+              </ColumnListItem>
+            </items>
+          </Table>
+        </Panel>
+      </HBox>
+
+      <HBox id="rightHBox" justifyContent="Center" class="" width="100%">
+        <Panel id="Right-panel" visible="true">
+          <Table items="{/Categories}">
+            <headerToolbar>
+              <Toolbar >
+                <Title width="100%" text="Categories Data" titleStyle="H3" textAlign="Center" />
+              </Toolbar>
+            </headerToolbar>
+            <columns>
+              <Column >
+                <Text text="Category Name" />
+              </Column>
+              <Column >
+                <Text text="Description" />
+              </Column>
+              <Column >
+                <Text text="Picture" />
+              </Column>
+            </columns>
+            <items>
+              <ColumnListItem >
+                <Text text="{CategoryName}"/>
+                <Text text="{Description}"/>
+                <Image src="{path: 'Picture', formatter: '.formatter.trimSuperfluousBytes'}" height="50px" width="50px" />
+              </ColumnListItem>
+            </items>
+          </Table>
+        </Panel>
+      </HBox>
+    </FlexBox>
+  </Panel>
+</mvc:View>
